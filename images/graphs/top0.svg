@@ -23,9 +23,9 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="pt"
      showgrid="false"
-     inkscape:zoom="2.1514647"
-     inkscape:cx="157.10228"
-     inkscape:cy="141.06669"
+     inkscape:zoom="8.6058588"
+     inkscape:cx="248.3773"
+     inkscape:cy="202.94314"
      inkscape:window-width="1854"
      inkscape:window-height="1011"
      inkscape:window-x="0"
@@ -391,7 +391,8 @@
      stroke-opacity="1"
      stroke-miterlimit="10"
      d="m 166.43194,148.71287 c 0,-1.40234 -1.14063,-2.54296 -2.54297,-2.54296 -1.40625,0 -2.54688,1.14062 -2.54688,2.54296 0,1.40625 1.14063,2.54297 2.54688,2.54297 1.40234,0 2.54297,-1.13672 2.54297,-2.54297 z m 0,0"
-     id="path2255" />
+     id="path2255"
+     style="stroke:none" />
   <g
      fill="#000000"
      fill-opacity="1"
@@ -458,7 +459,8 @@
      stroke-opacity="1"
      stroke-miterlimit="10"
      d="m 163.23272,143.15038 c 0,-1.40625 -1.14063,-2.54297 -2.54297,-2.54297 -1.40625,0 -2.54297,1.13672 -2.54297,2.54297 0,1.40234 1.13672,2.54296 2.54297,2.54296 1.40234,0 2.54297,-1.14062 2.54297,-2.54296 z m 0,0"
-     id="path2277" />
+     id="path2277"
+     style="stroke:none" />
   <g
      fill="#000000"
      fill-opacity="1"
@@ -525,7 +527,8 @@
      stroke-opacity="1"
      stroke-miterlimit="10"
      d="m 169.62725,143.15038 c 0,-1.40625 -1.13672,-2.54297 -2.54297,-2.54297 -1.40234,0 -2.54297,1.13672 -2.54297,2.54297 0,1.40234 1.14063,2.54296 2.54297,2.54296 1.40625,0 2.54297,-1.14062 2.54297,-2.54296 z m 0,0"
-     id="path2299" />
+     id="path2299"
+     style="stroke:none" />
   <g
      fill="#000000"
      fill-opacity="1"

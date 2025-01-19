@@ -55,6 +55,12 @@
 	
 
    
+<style>
+  :root {
+    
+  }
+</style>
+
 
 </head>
 
@@ -163,7 +169,7 @@
           </li>
           <li data-fragment-index="6" class="fragment">Each student $s$ ranks the others in order of preference $\succsim_s$<br>
           <ul>
-            <li data-fragment-index="7" class="fragment">E.g. $\{a,b,c\} \succ_a \{h,e,a\}$</li>
+            <li data-fragment-index="7" class="fragment">E.g. $\dots \succsim_a \{a,b,c\} \dots \succ_a \dots \{h,e,a\}\succsim_a \dots$</li>
           </ul>
           </li>
         </ul>
@@ -180,17 +186,21 @@
       <div style="width: 49%; float: left;font-size: 0.65em;"> 
         <ul>
           <li data-fragment-index="0" class="fragment">Set of agents $N$</li>
-          <li data-fragment-index="1"  class="fragment">Room size $s$
+          <li data-fragment-index="1" class="fragment">Partition the agents into rooms</li>
             <ul>
-              <li data-fragment-index="2" class="fragment">$s=3$</li>
+              <li data-fragment-index="2" class="fragment">Outcome = Partitioning of agents</li>
+            </ul>
+          <li data-fragment-index="3"  class="fragment">Room size $s$
+            <ul>
+              <li data-fragment-index="4" class="fragment">$s=3$</li>
             </ul>
           </li>
-          <li data-fragment-index="3" class="fragment">Each student ranks the others in order of preference 
+          <li data-fragment-index="5" class="fragment">Each student ranks the others in order of preference 
           <ul>
-            <li data-fragment-index="4" class="fragment">$(\succsim_a)_{a\in N}$</li>
+            <li data-fragment-index="6" class="fragment">$(\succsim_a)_{a\in N}$</li>
           </ul>
           </li>
-          <li data-fragment-index="5" class="fragment">
+          <li data-fragment-index="7" class="fragment">
             Game $G = (N, s, (\succsim_a)_{a\in N})$
           </li>
         </ul>
@@ -221,9 +231,9 @@
           </li>
           <li data-fragment-index="2" class="fragment">Blocking Room $R$
             <ul>
-              <li data-fragment-index="3" class="fragment">$\{c,g,k\} \succ_k \{k,j,i\}$</li>
-              <li data-fragment-index="4" class="fragment">$\{c,g,k\} \succ_g \{g,h,l\}$</li>
-              <li data-fragment-index="5" class="fragment">$\{c,g,k\} \succ_c \{a,b,c\}$</li>
+              <li data-fragment-index="3" class="fragment">$\dots \succsim_k \{c,g,k\} \dots \succ_k \dots \{k,j,i\}\succsim_k \dots$</li>
+              <li data-fragment-index="4" class="fragment">$\dots \succsim_g \{c,g,k\} \dots \succ_g \dots \{g,h,l\} \succsim_g \dots$</li>
+              <li data-fragment-index="5" class="fragment">$\dots \succsim_c \{c,g,k\} \dots \succ_c \dots \{a,b,c\} \succsim_c \dots$</li>
             </ul>
           </li>
           <li data-fragment-index="8" class="fragment">No blocking room $R$<span data-fragment-index="9" class="fragment">$\iff$</span><span data-fragment-index="10" class="fragment">$\pi$ is core stable</span></li>
@@ -282,7 +292,7 @@
           <p></p>
           <li data-fragment-index="19" class="fragment">$p$ is mixed popular
             <ul>
-              <li data-fragment-index="20" class="fragment">$p$ is a probability distribution over all possible outcomes</li>
+              <li data-fragment-index="20" class="fragment">$p$ is a probability distribution over all possible outcomes $\Pi$</li>
               <li data-fragment-index="21" class="fragment">$p$ is expected to be more popular than any other probability distribution $q$
               <ul data-fragment-index="21" class="fragment">
                 <li>$E_p[\Pi] \geq E_q[\Pi]$</li>
@@ -312,22 +322,61 @@
     
         <section >
             
-            <h3>Complexity of Popularity$^{\text{[4,5,6]}}$</h3>
+            <h3>Equilibrium Concepts</h3>
+<h4>others</h4>
+  <section>
+    <div style="width: 100%;"> 
+      <ul>
+        <li data-fragment-index="0" class="fragment">Exchange stability
+          <ul>
+            <li data-fragment-index="1" class="fragment">No pair of agents would prefer to exchange their coalitions over staying in their assigned coalition</li>
+          </ul>
+        </li>
+        <li data-fragment-index="2" class="fragment">Envy-freeness
+          <ul>
+            <li data-fragment-index="3" class="fragment">No agent wants to take the place of another agent</li>
+          </ul>
+        </li>
+        <li data-fragment-index="4" class="fragment">Pareto optimality
+          <ul>
+            <li data-fragment-index="5" class="fragment">No other partitioning of agents exists such that none of the agents are worse off and some of the agents are better off</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Complexity$^{\text{[4,5,6]}}$</h3>
 <!-- -----------------------------------graph 3------------------------------------- -->
   <section>
   <!-- <h5>Definition</h5> -->
     <div style="width: 100%;">
-        <ul>
-          <li data-fragment-index="0" class="fragment">Popularity on Multidimensional Roommates Problem</br>
-            <ul>
-              <li data-fragment-index="1" class="fragment">NP-hard</li>
-              <ul>
-                <li data-fragment-index="2" class="fragment">Even with room size $s=2$</li>
-                <li data-fragment-index="3" class="fragment">Even when preferences $(\succsim_a)_{a \in N}$ are strict</li>
-              </ul>
-            </ul>
-          </li>
-        </ul>
+      <table data-fragment-index="0" class="fragment">
+        <tbody>
+          <tr>
+            <td></td>
+            <td>Multidimensional Stable Roommates <br>($s \geq 3$)</td>
+            <td>Stable Roommates <br>($s=2$)</td>
+          </tr>
+          <tr>
+            <td>Core Stability</td>
+            <td data-fragment-index="1" class="fragment"><span style="color:red">NP-complete</span>$^{[14]}$</td>
+            <td data-fragment-index="3" class="fragment"><span style="color:green">P</span>$^{[13]}$</td>
+          </tr>
+          <tr>
+            <td>Popularity</td>
+            <td data-fragment-index="2" class="fragment"><span style="color:red">NP-hard</span>$^{[4,5,6]}$</td>
+            <td data-fragment-index="4" class="fragment"><span style="color:red">NP-hard</span>$^{[4,5,6]}$</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </section>
             </section>
@@ -341,7 +390,172 @@
             <h3>Variations of Multidimensional Roommates Problem</h3>
 <!-- -----------------------------------graph 3------------------------------------- -->
   <section>
-    <h5 data-fragment-index="0" class="fragment">Restrict preferences $(\succsim_a)_{a \in N}$</h5>
+    <h5 data-fragment-index="0" class="fragment">Restrict preferences and rooms</h5>
+    <h5 data-fragment-index="1" class="fragment">Overview</h5>
+    <div style="width:40%; float:left">
+      <ul>
+      <li data-fragment-index="3" class="fragment" style="font-size:0.8em">Hedonic Games</li>
+      </ul>
+    </div>
+    <div style="width:60%; margin-left:40%">
+      <img data-fragment-index="2" class="fragment" style="display: block;
+        margin-left: auto;
+        margin-right: auto;" 
+        width="100%" height="auto" 
+        data-src="images/prelim/hedonicgames1.svg">
+    </div>
+  </section>
+  <section>
+    <h5>Restrict preferences and rooms</h5>
+    <h5>Overview</h5>
+    <div style="width:40%; float:left">
+      <ul>
+        <li style="font-size:0.8em">Hedonic Games</li>
+        <ul>
+          <li data-fragment-index="1" class="fragment" style="font-size:0.8em"><span style="color:red">Multidimensional Stable Roommates Problem</span><br>
+            <span data-fragment-index="2" class="fragment"  style="font-size:0.8em">All rooms must have the same size</span>
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div style="width:60%; margin-left:40%">
+      <img style="display: block;
+        margin-left: auto;
+        margin-right: auto;" 
+        width="100%" height="auto" 
+        data-src="images/prelim/hedonicgames2.svg">
+    </div>
+  </section>
+  <section>
+    <h5>Restrict preferences and rooms</h5>
+    <h5>Overview</h5>
+    <div style="width:40%; float:left">
+      <ul>
+        <li style="font-size:0.8em">Hedonic Games</li>
+        <ul>
+          <li style="font-size:0.8em"><span style="color:red">Multidimensional Stable Roommates Problem</span><br>
+            <span style="font-size:0.8em">All rooms must have the same size</span>
+            <ul>
+              <li data-fragment-index="1" class="fragment" style="font-size:0.8em;"><span style="color:blue">Stable Roommates Problem</span><br>
+              <span data-fragment-index="2" class="fragment"  style="font-size:0.8em">Each room must contain exactly 2 agents</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div style="width:60%; margin-left:40%">
+      <img style="display: block;
+        margin-left: auto;
+        margin-right: auto;" 
+        width="100%" height="auto" 
+        data-src="images/prelim/hedonicgames3.svg">
+    </div>
+  </section>
+  <section>
+    <h5>Restrict preferences and rooms</h5>
+    <h5>Overview</h5>
+    <div style="width:40%; float:left">
+      <ul>
+        <li style="font-size:0.8em">Hedonic Games</li>
+        <ul>
+          <li style="font-size:0.8em"><span style="color:red">Multidimensional Stable Roommates Problem</span><br>
+            <span style="font-size:0.8em">All rooms must have the same size</span>
+            <ul>
+              <li style="font-size:0.8em"><span style="color:blue">Stable Roommates Problem</span><br>
+              <span style="font-size:0.8em">Each room must contain exactly 2 agents</span>
+                <ul>
+                  <li data-fragment-index="1" class="fragment" style="font-size:0.8em"><span style="color:rgb(0,153,0)">Stable Marriage Problem</span><br>
+                  <span data-fragment-index="2" class="fragment"  style="font-size:0.8em">Each room must contain exactly 1 woman and 1 man</span>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div style="width:60%; margin-left:40%">
+      <img style="display: block;
+        margin-left: auto;
+        margin-right: auto;" 
+        width="100%" height="auto" 
+        data-src="images/prelim/hedonicgames4.svg">
+    </div>
+  </section>
+  <section>
+    <h5>Restrict preferences and rooms</h5>
+    <h5>Overview</h5>
+    <div style="width:40%; float:left">
+      <ul>
+        <li style="font-size:0.8em">Hedonic Games</li>
+        <ul>
+          <li style="font-size:0.8em"><span style="color:red">Multidimensional Stable Roommates Problem</span><br>
+            <span style="font-size:0.8em">All rooms must have the same size</span>
+            <ul>
+              <li style="font-size:0.8em"><span style="color:blue">Stable Roommates Problem</span><br>
+              <span style="font-size:0.8em">Each room must contain exactly 2 agents</span>
+                <ul>
+                  <li style="font-size:0.8em"><span style="color:rgb(0,153,0)">Stable Marriage Problem</span><br>
+                  <span style="font-size:0.8em">Each room must contain exactly 1 woman and 1 man</span>
+                  </li>
+                </ul>
+              </li>
+              <li data-fragment-index="1" class="fragment" style="font-size:0.8em"><span style="color:rgb(126,0,88)">Roommate Diversity Problem</span><br>
+              <span data-fragment-index="2" class="fragment"  style="font-size:0.8em">Each agent has diversity preferences</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div style="width:60%; margin-left:40%">
+      <img style="display: block;
+        margin-left: auto;
+        margin-right: auto;" 
+        width="100%" height="auto" 
+        data-src="images/prelim/hedonicgames5.svg">
+    </div>
+  </section>
+  <section>
+    <h5>Restrict preferences and rooms</h5>
+    <h5>Overview</h5>
+    <div style="width:40%; float:left">
+      <ul>
+        <li style="font-size:0.8em">Hedonic Games</li>
+        <ul>
+          <li style="font-size:0.8em"><span style="color:red">Multidimensional Stable Roommates Problem</span><br>
+            <span style="font-size:0.8em">All rooms must have the same size</span>
+            <ul>
+              <li style="font-size:0.8em"><span style="color:blue">Stable Roommates Problem</span><br>
+              <span style="font-size:0.8em">Each room must contain exactly 2 agents</span>
+                <ul>
+                  <li style="font-size:0.8em"><span style="color:rgb(0,153,0)">Stable Marriage Problem</span><br>
+                  <span style="font-size:0.8em">Each room must contain exactly 1 woman and 1 man</span>
+                  </li>
+                </ul>
+              </li>
+              <li style="font-size:0.8em"><span style="color:rgb(126,0,88)">Roommate Diversity Problem</span><br>
+              <span style="font-size:0.8em">Each agent has diversity preferences</span>
+              </li>
+              <li data-fragment-index="1" class="fragment" style="font-size:0.8em"><span style="color:rgb(91,53,0)">3D-Euclidean Stable Roommates</span><br>
+              <span data-fragment-index="2" class="fragment"  style="font-size:0.8em">Each agent has distance preferences</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </ul>
+    </div>
+    <div style="width:60%; margin-left:40%">
+      <img style="display: block;
+        margin-left: auto;
+        margin-right: auto;" 
+        width="100%" height="auto" 
+        data-src="images/prelim/hedonicgames6.svg">
+    </div>
+  </section>
+  <section>
+    <h5>Restrict preferences and rooms</h5>
     <div style="width: 100%;">
         <h5 data-fragment-index="1" class="fragment">Roommate Diversity Problem$^{[7]}$</h5>
         <div data-fragment-index="2" class="fragment" style="font-size:0.7em">
@@ -417,15 +631,23 @@
     </div>
   </section>
   <section>
-    <h5>Restrict preferences $(\succsim_a)_{a \in N}$</h5>
+    <h5>Restrict preferences and rooms</h5>
     <div style="width: 100%;">
           <h5>3D-Euclidean Stable Roommates Problem$^{[8]}$</h5>
-          <ul>
-            <li data-fragment-index="1" class="fragment">2D-Euclidean Stable Roommates Problem</li>
-            <li data-fragment-index="2" class="fragment">Core Stability</li>
-            <li data-fragment-index="3" class="fragment">Room Size $s \geq 3$, </li>
-            <li data-fragment-index="4" class="fragment" style="color:red">NP-Complete</li>
-          </ul>
+          <table data-fragment-index="1" class="fragment">
+            <tbody>
+              <tr>
+                <td></td>
+                <td><b>2D</b>-Euclidean Space<br />(Room size = 2)</td>
+                <td><b>2D</b>-Euclidean Space<br />(Room size > 2)</td>
+              </tr>
+              <tr>
+                <td>Core Stability</td>
+                <td style="color:green" data-fragment-index="2" class="fragment">P</td>
+                <td style="color:red" data-fragment-index="3" class="fragment">NP-Complete</td>
+              </tr>
+            </tbody>
+          </table>
     </div>
   </section>
             </section>
@@ -525,7 +747,7 @@
               </li>
             </ul>
           </li>
-          <li class="fragment">Game $G = (\color{red}R\color{black},\color{blue}B\color{black},s, (\succsim_a)_{a \in \color{red}R\color{black}\cup\color{blue}B\color{black}})$</li>
+          <li class="fragment">Game $G = ($<span style="color:red">$R$</span>$,$<span style="color:blue">$B$</span>$,s, (\succsim_a)_{a \in }$<span style="color:red">$_R$</span>$_\cup$<span style="color:blue">$_B$</span>$)$</li>
         </ul>
       </div>
       <div style="margin-left: 50%;width:50%" id="graph2-cy" class="graph">
@@ -559,7 +781,7 @@
               </li>
             </ul>
           </li>
-          <li>Game $G = (\color{red}R\color{black},\color{blue}B\color{black},s, (\succsim_a)_{a \in \color{red}R\color{black}\cup\color{blue}B\color{black}})$</li>
+          <li>Game $G = ($<span style="color:red">$R$</span>$,$<span style="color:blue">$B$</span>$,s, (\succsim_a)_{a \in }$<span style="color:red">$_R$</span>$_\cup$<span style="color:blue">$_B$</span>$)$</li>
           <li class="fragment">Preference of agent $a \in \color{red}{R} \color{black}\cup \color{blue}{B}$ is dichotomous
             <ul>
               <li class="fragment">
@@ -601,11 +823,11 @@
             <h3>Room Size 2</h3>
 <!-- -----------------------------------graph 4------------------------------------- -->
 <section class="graph-section" id="graph4">
-<h5 data-fragment-index="0" class="fragment"><b>Theorem:</b> Popular outcome $\pi$ can be computed in <span style="color: green">polynomial time</span></h5>
+<h5 data-fragment-index="0" class="fragment"><b>Theorem 3.1.2:</b> Popular outcome $\pi$ can be computed in <span style="color: green">polynomial time</span></h5>
   <div style="width: 100%;">
     <div style="width: 49%; float: left;font-size: 0.65em;"> 
       <ul>
-        <li data-fragment-index="1" class="fragment">Game $G = (\color{red}R\color{black},\color{blue}B\color{black},2, (\succsim_a)_{a \in \color{red}R\color{black}\cup\color{blue}B\color{black}})$</br>
+        <li data-fragment-index="1" class="fragment">Game $G = ($<span style="color:red">$R$</span>$,$<span style="color:blue">$B$</span>$,2, (\succsim_a)_{a \in }$<span style="color:red">$_R$</span>$_\cup$<span style="color:blue">$_B$</span>$)$</br>
           <ul>
             <li data-fragment-index="2" class="fragment">$s=2$</li>
           </ul>
@@ -671,17 +893,38 @@
   </div>
 </section>
 <section class="graph-section" id="graph4_2">
-<h5><b>Theorem:</b> Popular outcome $\pi$ can be computed in <span style="color: green">polynomial time</span></h5>
+<h5><b>Theorem 3.1.2:</b> Popular outcome $\pi$ can be computed in <span style="color: green">polynomial time</span></h5>
   <div style="width: 100%;">
-    <ul>
-      <li data-fragment-index="1" class="fragment">Popularity on Stable Roommates Problem
-      <ul>
-        <li data-fragment-index="2" class="fragment">No restrictions on preferences</li>
-        <li data-fragment-index="3" class="fragment">room size 2</li>
-        <li data-fragment-index="4" class="fragment" style="color:red">NP-hard</li>
-      </ul>
-      </li>
-    </ul>
+    <table>
+    <tr>
+      <th>Equilibrium Concept</th>
+      <th>Room size</th>
+      <th data-fragment-index="1" class="fragment">Multidimensional Stable Roommates Problem</th>
+      <th data-fragment-index="3" class="fragment">Roommate Diversity Problem</th>
+      <th style="color: white"> 3D-Euclidean Stable Roommates</th>
+    </tr>
+    <tr>
+      <td>Popularity</td>
+      <td>$2$</td>
+      <td data-fragment-index="2" class="fragment" style="color:red">NP-hard</td>
+      <td data-fragment-index="4" class="fragment" style="color:green">P</td>
+      <td style="color: white">?</td>
+    </tr>
+    <tr>
+      <td style="color: white">Strict Popularity</td>
+      <td style="color: white">$\geq 3$</td>
+      <td style="color: white">NP-hard</td>
+      <td style="color: white">co-NP-hard</td>
+      <td style="color: white">co-NP-hard</td>
+    </tr>
+    <tr style="color: white">
+      <td>Strict Popularity</td>
+      <td>$3$</td>
+      <td>NP-hard</td>
+      <td>?</td>
+      <td>co-NP-hard</td>
+    </tr>
+  </table>
   </div>
 </section>
             </section>
@@ -694,7 +937,7 @@
             
             <h3>Strict Popularity</h3>
 <section>
-<h5 data-fragment-index="0" class="fragment"><b>Theorem:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5 data-fragment-index="0" class="fragment"><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
 <h5 data-fragment-index="1" class="fragment">Exact Cover by 3-Sets Problem$^{\text{[3]}}$</h5>
     <div style="width: 49%; float: left;font-size: 0.65em;"> 
       <ul>
@@ -817,8 +1060,190 @@
         <section >
             
             <h3>Strict Popularity</h3>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop1.svg">
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop2.svg">
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop3.svg">
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop4.svg">
+<ul>
+<li style="font-size:0.8em" class="fragment">There exists 1 reduced outcome $\pi_{S}$ per solution $S$ of $I$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop5.svg">
+<ul>
+<li style="font-size:0.8em">There exists 1 reduced outcome $\pi_{S}$ per solution $S$ of $I$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop6.svg">
+<ul>
+<li style="font-size:0.8em" class="fragment">There exists exactly 1 monolithic outcome $\pi_{mon}$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop7.svg">
+<ul>
+<li style="font-size:0.8em">There exists exactly 1 monolithic outcome $\pi_{mon}$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop8.svg">
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop9.svg">
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop10.svg">
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop11.svg">
+<ul>
+<li style="font-size:0.8em" class="fragment">$I$ has a solution <span class="fragment">$\Rightarrow$ <span style="color:red">No</span> strictly popular outcome</span></li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="70%" height="auto" 
+  data-src="images/strictpop-rdp/strictpop12.svg">
+<ul>
+<li style="font-size:0.8em">$I$ has <span style="color:red">NO</span> a solution <span class="fragment">$\Rightarrow$ $\pi_{mon}$ is strictly popular</span></li>
+</ul>
+</section>
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Strict Popularity</h3>
 <section class="graph-section" id="graph6">
-<h5><b>Theorem:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
   <h5>Reduction</h5>
   <div style="width: 100%;">
     <div style="width: 49%; float: left;font-size: 0.65em;"> 
@@ -827,7 +1252,7 @@
           <li data-fragment-index="1" class="fragment">$\small X = \{1,2,3,4,5,6\}$</li>
           <li data-fragment-index="2" class="fragment">$\small \mathcal{C} = \{\{1,2,3\}, \{2,3,4\}, \{4,5,6\}\} = \{C_1,C_2,C_3\}$</li>
       </ul>
-      <b data-fragment-index="3" class="fragment" style="font-size:0.99em">Roommate Diversity Game $G = (\color{red}R\color{black},\color{blue}B\color{black},s,(\succsim_a)_{a\in \color{red}R\color{black}\cup\color{blue}B\color{black}})$</b>
+      <b data-fragment-index="3" class="fragment" style="font-size:0.99em">Roommate Diversity Game $G = ($<span style="color:red">$R$</span>$,$<span style="color:blue">$B$</span>$,s, (\succsim_a)_{a \in }$<span style="color:red">$_R$</span>$_\cup$<span style="color:blue">$_B$</span>$)$</b>
       <ul>
         <li data-fragment-index="4" class="fragment" style="font-size: 0.8em;">Set $s = 5(q + 1) + 1 + m$</li>
         <li data-fragment-index="5" class="fragment" style="font-size: 0.8em;">For each $i \in X$, create red set agent $\color{red}r_i$</li>
@@ -896,7 +1321,7 @@
           <li style="font-size:0.8em" data-fragment-index="37" class="fragment">Exists if and only if $I$ has a solution</li>
           <li style="font-size:0.8em" data-fragment-index="38" class="fragment">Each agent $a$ in a room with fraction in $D_a^+$</li>
         </ul>
-        <li style="font-size:0.8em" data-fragment-index="41" class="fragment">$\pi_{mon}$ and $\pi_S$ are <b>more popular</b> than any other outcome of $G$</li>
+        <li style="font-size:0.8em" data-fragment-index="45" class="fragment">$\pi_{mon}$ and $\pi_S$ are <b>more popular</b> than any other outcome of $G$</li>
         <!-- <li style="font-size:0.8em" data-fragment-index="43" class="fragment">$I$ has <b>a</b> solution<span data-fragment-index="44" class="fragment">$\implies$</span><span data-fragment-index="45" class="fragment">$G$ has more than 1 popular outcome</span></li> -->
         <li style="font-size:0.8em" data-fragment-index="46" class="fragment">$I$ has <b>no</b> solution<span data-fragment-index="47" class="fragment">$\iff$</span><span data-fragment-index="48" class="fragment">$G$ has a <b>strictly popular</b> outcome</span><span data-fragment-index="49" class="fragment"> $\Box$</span></li>
       </ul>
@@ -911,9 +1336,418 @@
     <div data-fragment-index="18" id="graph66-cy" class="fragment"></div>
     <div data-fragment-index="20" id="graph67-cy" class="fragment"></div>
     <div data-fragment-index="33" id="graph68-cy" class="fragment"></div>
-    <div data-fragment-index="39" id="graph69-cy" class="fragment"></div>
+    <div data-fragment-index="40" id="graph69-cy" class="fragment"></div>
+    <div data-fragment-index="41" id="graph610-cy" class="fragment"></div>
+    <div data-fragment-index="42" id="graph611-cy" class="fragment"></div>
+    <div data-fragment-index="43" id="graph612-cy" class="fragment"></div>
+    <div data-fragment-index="44" id="graph613-cy" class="fragment"></div>
   </div>
-  <div data-fragment-index="40" class="fragment" style="margin-left: 50%;width:50%;text-align: center;font-size:0.8em">$\pi_S$, where $S = \{C_1,C_3\}$</div>
+  <div data-fragment-index="39" class="fragment" style="margin-left: 50%;width:50%;text-align: center;font-size:0.8em">$\pi_S$, where $S = \{C_1,C_3\}$</div>
+</section>
+<section>
+<h5><b>Theorem 3.2.2:</b> Strict popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+  <div style="width: 100%;">
+    <table>
+    <tr>
+      <th>Equilibrium Concept</th>
+      <th>Room size</th>
+      <th>Multidimensional Stable Roommates Problem</th>
+      <th>Roommate Diversity Problem</th>
+      <th style="color: white"> 3D-Euclidean Stable Roommates</th>
+    </tr>
+    <tr>
+      <td>Popularity</td>
+      <td>$2$</td>
+      <td style="color:red">NP-hard</td>
+      <td style="color:green">P</td>
+      <td style="color: white">?</td>
+    </tr>
+    <tr>
+      <td>Strict Popularity</td>
+      <td>$\geq 3$</td>
+      <td data-fragment-index="1" class="fragment"  style="color: red">NP-hard</td>
+      <td data-fragment-index="2" class="fragment" style="color: red">co-NP-hard</td>
+      <td style="color: white">co-NP-hard</td>
+    </tr>
+    <tr style="color: white">
+      <td>Strict Popularity</td>
+      <td>$3$</td>
+      <td>NP-hard</td>
+      <td>?</td>
+      <td>co-NP-hard</td>
+    </tr>
+  </table>
+  </div>
+</section>
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Mixed Popularity</h3>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop1.svg">
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop2.svg">
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop3.svg">
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop4.svg">
+<ul>
+<li style="font-size:0.8em" class="fragment">There exists 1 reduced outcome $\pi_{S}$ per solution $S$ of $I$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop5.svg">
+<ul>
+<li style="font-size:0.8em">There exists 1 reduced outcome $\pi_{S}$ per solution $S$ of $I$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop6.svg">
+<ul>
+<li style="font-size:0.8em">There exists 1 reduced outcome $\pi_{S}$ per solution $S$ of $I$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop7.svg">
+<ul>
+<li style="font-size:0.8em" class="fragment">There exists exactly 1 monolithic outcome $\pi_{mon}$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop8.svg">
+<ul>
+<li style="font-size:0.8em">There exists exactly 1 monolithic outcome $\pi_{mon}$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop9.svg">
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop10.svg">
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop11.svg">
+<ul>
+<li style="font-size:0.8em" class="fragment">$I$ has a solution <span class="fragment">$\Rightarrow p=\{(\pi_{mon}, 1)\}$ is <span style="color:red">NOT</span> mixed popular</span></li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.3.6:</b> Mixed popular outcome cannot be computed in polynomial time, unless <span style="color: red">P=NP</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/mixpop-rdp/mixpop12.svg">
+<ul>
+<li style="font-size:0.8em">$I$ has <span style="color:red">NO</span> a solution <span class="fragment">$\Rightarrow p=\{(\pi_{mon}, 1)\}$ is mixed popular</span></li>
+</ul>
+</section>
+            </section>
+    
+
+
+
+    
+        <section >
+            
+            <h3>Popularity</h3>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop1.svg">
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop2.svg">
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop3.svg">
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop4.svg">
+<ul>
+<li style="font-size:0.8em" class="fragment">There exist 3 reduced type outcomes $\pi_{S},\pi'_{S},\pi''_{S}$ per solution $S$ of $I$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop5.svg">
+<ul>
+<li style="font-size:0.8em">There exist 3 reduced type outcomes $\pi_{S},\pi'_{S},\pi''_{S}$ per solution $S$ of $I$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop6.svg">
+<ul>
+<li style="font-size:0.8em">There exist 3 reduced type outcomes $\pi_{S},\pi'_{S},\pi''_{S}$ per solution $S$ of $I$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop7.svg">
+<ul>
+<li style="font-size:0.8em" class="fragment">There exists exactly 1 monolithic outcome $\pi_{mon}$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop8.svg">
+<ul>
+<li style="font-size:0.8em">There exists exactly 1 monolithic outcome $\pi_{mon}$</li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop9.svg">
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop10.svg">
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop11.svg">
+<ul>
+<li style="font-size:0.8em" class="fragment">$I$ has a solution <span class="fragment">$\Rightarrow$ <span style="color:red">NO</span> popular outcome</span></li>
+</ul>
+</section>
+<section>
+<h5><b>Theorem 3.4.17:</b> Popularity with room size $\geq$ 3 is <span style="color: red">co-NP-hard</span>
+<h5>Reduction Strategy</h5>
+<ul>
+  <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+</ul>
+<img style="display: block;
+  margin-left: auto;
+  margin-right: auto;" 
+  width="100%" height="auto" 
+  data-src="images/pop-rdp/pop12.svg">
+<ul>
+<li style="font-size:0.8em">$I$ has <span style="color:red">NO</span> a solution <span class="fragment">$\Rightarrow \pi_{mon}$ is popular</span></li>
+</ul>
 </section>
             </section>
     
@@ -945,7 +1779,7 @@
           <li data-fragment-index="0" class="fragment">Popular outcome computable in polynomial time</li>
         </ul>
       </td>
-      <td data-fragment-index="0" class="fragment"><b>Section 3.1</b></td>
+      <td data-fragment-index="0" class="fragment"><b>Theorem 3.1.2.</b></td>
       <td style="color:white"></td>
     </tr>
     <tr>
@@ -957,7 +1791,7 @@
           <li data-fragment-index="0" class="fragment"><b>co-NP-hard</b></li>
         </ul>
       </td>
-      <td data-fragment-index="0" class="fragment"><b>Section 3.2</b></td>
+      <td data-fragment-index="0" class="fragment"><b>Theorem 3.2.2.</b></td>
       <td>
         <ul>
           <li style="color:white"><b>Completeness<b></li>
@@ -976,7 +1810,7 @@
           <li style="color:red" data-fragment-index="0" class="fragment">Mixed Popular outcome <b>CANNOT</b> be computed in polynomial time, unless P=NP</li>
         </ul>
       </td>
-      <td data-fragment-index="0" class="fragment"><b>Section 3.3</b></td>
+      <td data-fragment-index="0" class="fragment"><b>Theorem 3.3.1.<br>Theorem 3.3.6.</b></td>
       <td>
         <ul>
           <li style="color:white"><b>Strict Preferences<b></li>
@@ -993,7 +1827,7 @@
           <li data-fragment-index="0" class="fragment"><b>co-NP-hard</b></li>
         </ul>
       </td>
-      <td data-fragment-index="0" class="fragment"><b>Section 3.4</b></td>
+      <td data-fragment-index="0" class="fragment"><b>Theorem 3.4.17.</b></td>
       <td>
         <ul>
           <li style="color:white"><b>Completeness<b></li>
@@ -1026,7 +1860,7 @@
           <li >Popular outcome computable in polynomial time</li>
         </ul>
       </td>
-      <td ><b>Section 3.1</b></td>
+      <td><b>Theorem 3.1.2.</b></td>
       <td style="color:white"></td>
     </tr>
     <tr>
@@ -1038,7 +1872,7 @@
           <li ><b>co-NP-hard</b></li>
         </ul>
       </td>
-      <td ><b>Section 3.2</b></td>
+      <td ><b>Theorem 3.2.2.</b></td>
       <td>
         <ul>
           <li style="color:white"><b>Completeness<b></li>
@@ -1057,7 +1891,7 @@
           <li style="color:red" >Mixed Popular outcome <b>CANNOT</b> be computed in polynomial time, unless P=NP</li>
         </ul>
       </td>
-      <td ><b>Section 3.3</b></td>
+      <td ><b>Theorem 3.3.1.<br>Theorem 3.3.6.</b></td>
       <td>
         <ul>
           <li style="color:white"><b>Strict Preferences<b></li>
@@ -1074,7 +1908,7 @@
           <li ><b>co-NP-hard</b></li>
         </ul>
       </td>
-      <td ><b>Section 3.4</b></td>
+      <td ><b>Theorem 3.4.17.</b></td>
       <td>
         <ul>
           <li style="color:white"><b>Completeness<b></li>
@@ -1181,7 +2015,7 @@
             
             <h3>Strict Popularity</h3>
 <section>
-   <h5><b>Theorem:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+   <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
 </section>
             </section>
     
@@ -1193,7 +2027,7 @@
             
             <h3>Strict Popularity</h3>
 <section id="graph_pcx3c">
-   <h5><b>Theorem:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+   <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
    <h5><span data-fragment-index="0" class="fragment"><span style="color:red">Planar</span> and <span style="color:blue">Cubic</span> </span>Exact Cover by 3-Sets Problem$^{\text{[3]}}$</h5>
     <div style="width: 49%; float: left;font-size: 0.65em;"> 
       <ul>
@@ -1308,8 +2142,38 @@
         <section >
             
             <h3>Strict Popularity</h3>
+<section>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <h5>Reduction Strategy</h5>
+  <ul>
+    <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+  </ul>
+  <img style="display: block;
+    margin-left: auto;
+    margin-right: auto;" 
+    width="70%" height="auto" 
+    data-src="images/strictpop-euclidsr/strictpop11.svg">
+  <ul>
+  <li style="font-size:0.8em" class="fragment">$I$ has a solution <span class="fragment">$\Rightarrow$ <span style="color:red">No</span> strictly popular outcome</span></li>
+  </ul>
+</section>
+<section>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <h5>Reduction Strategy</h5>
+  <ul>
+    <li style="font-size:0.8em">Let $\Pi$ be the set of all outcomes</li>
+  </ul>
+  <img style="display: block;
+    margin-left: auto;
+    margin-right: auto;" 
+    width="70%" height="auto" 
+    data-src="images/strictpop-euclidsr/strictpop12.svg">
+  <ul>
+  <li style="font-size:0.8em">$I$ has <span style="color:red">NO</span> a solution <span class="fragment">$\Rightarrow$ $\pi_{pp}$ is strictly popular</span></li>
+  </ul>
+</section>
 <section id="graph_pcx3c">
-  <h5><b>Theorem:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
   <div style="width: 100%;">
     <div style="width: 49%; float: left;font-size: 0.65em;"> 
       <b data-fragment-index="1" class="fragment" style="font-size:0.99em">3 Layers</b>
@@ -1322,7 +2186,7 @@
   </div>
 </section>
 <section class="graph-section" id="bottomlayergraph1">
-  <h5><b>Theorem:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
   <div style="width: 100%;">
     <div style="width: 49%; float: left;font-size: 0.65em;">
       <b style="font-size:0.99em">Bottom Layer</b>
@@ -1364,7 +2228,8 @@
         <div data-fragment-index="19" style="width:700px; height:400px" id="blg3" class="fragment"></div>
       </span>
       <span>
-        <div data-fragment-index="25" style="width:700px; height:400px" id="blg4" class="fragment"></div>
+        <div data-fragment-index="25" style="width:700px; height:100px" id="blg4" class="fragment"></div>
+        <div data-fragment-index="29" style="height:100%;margin-top:3em" id="blg5-anim0" class="fragment"></div>
       </span>
     </div>
     <div data-fragment-index="4" style="margin-left: 55%;width:700px" id="blg1" class="fragment graph"></div>
@@ -1376,13 +2241,15 @@
     <div data-fragment-index="20" id="blg1-6" class="fragment"></div>
     <div data-fragment-index="21" id="blg1-7" class="fragment"></div>
     <div data-fragment-index="26" id="blg1-8" class="fragment"></div>
-    <div data-fragment-index="27" id="blg1-9" class="fragment"></div>
-    <div data-fragment-index="28" id="blg1-10" class="fragment"></div>
-    <div data-fragment-index="29" id="blg1-11" class="fragment"></div>
+    <div data-fragment-index="32" id="blg1-9" class="fragment"></div>
+    <div data-fragment-index="27" id="blg1-10" class="fragment"></div>
+    <div data-fragment-index="28" id="blg1-11" class="fragment"></div>
+    <div data-fragment-index="30" id="blg5-anim1" class="fragment"></div>
+    <div data-fragment-index="31" id="blg5-anim2" class="fragment"></div>
   </div>
 </section>
 <section class="graph-section" id="toplayergraph1">
-  <h5><b>Theorem:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
   <div style="width: 100%;">
     <div style="width: 49%; float: left;font-size: 0.65em;">
       <b style="font-size:0.99em">Top Layer</b>
@@ -1452,7 +2319,7 @@
   </div>
 </section>
 <section class="graph-section" id="ascendlayergraph1">
-  <h5><b>Theorem:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
   <div style="width: 100%;">
     <div style="width: 49%; float: left;font-size: 0.65em;">
       <b style="font-size:0.99em">Ascending Layer</b>
@@ -1533,7 +2400,7 @@
               Ascending Layer
               <img style="" 
                 width="auto" height="100%" 
-                data-src="images/graphs/ascending5.svg">
+                data-src="images/graphs/ascending4.svg">
               </div>
             <div id="" class=" column">
               Top Layer
@@ -1545,7 +2412,7 @@
   </div>
 </section>
 <section class="graph-section" id="ppoutcomegraph1">
-  <h5><b>Theorem:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
   <div style="width: 100%;">
     <div>
       <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
@@ -1562,74 +2429,139 @@
           </li>
       </ul>
     </div>
+  </div>
+</section>
+<section class="graph-section" id="ppbot0">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
+    </div>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="ppbot0-anim" style="display: block; width:85%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="ppbot1">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
+    </div>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="ppbot1-anim" style="display: block; width:85%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="ppbot2">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
+    </div>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="ppbot2-anim" style="display: block; width:85%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="ppbot3">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
+    </div>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="ppbot3-anim" style="display: block; width:85%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="ppbot4">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
+    </div>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="ppbot4-anim" style="display: block; width:85%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="ppascending0">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
+    </div>
+      <div style="width:100%">
+        <div>
+              Ascending Layer
+        </div>
+        <div id="ppascending0-anim" style="display: block; width:85%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="ppascending1">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
+    </div>
+      <div style="width:100%">
+        <div>
+              Ascending Layer
+        </div>
+        <div id="ppascending1-anim" style="display: block; width:85%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="pptop0">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
+    </div>
+      <div style="width:100%">
+        <div>
+              Top Layer
+        </div>
+        <div id="pptop0-anim" style="display: block; width:50%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="pptop1">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Permanent popular outcome $\pi_{pp}$</b>
+    </div>
+      <div style="width:100%">
+        <div>
+              Top Layer
+        </div>
+        <div id="pptop1-anim" style="display: block; width:50%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="ppoutcomegraph1">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
     <p  style="color:white">Solution $S = \{C_1, C_6\}$</p>
-    <span data-fragment-index="6" class="fade-out fragment hide">
-      <div style="width:100%" class="row fragment" data-fragment-index="5">
-        <div class=" column">
-              Bottom Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/bottom1.svg">
-        </div>
-        <div id="" class=" column">
-              Ascending Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/ascending4.svg">
-          </div>
-        <div id="" class=" column">
-              Top Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/top4.svg">
-        </div>
-      </div>
-    </span>
-    <span data-fragment-index="7" class="fade-out fragment hide">
-      <div style="width:100%" class="row fragment" data-fragment-index="6">
-        <div class=" column">
-              Bottom Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/bottom2.svg">
-        </div>
-        <div id="" class=" column">
-              Ascending Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/ascending5.svg">
-          </div>
-        <div id="" class=" column">
-              Top Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/top4.svg">
-        </div>
-      </div>
-    </span>
-    <span data-fragment-index="8" class="fade-out fragment hide">
-      <div style="width:100%" class="row fragment" data-fragment-index="7">
-        <div class=" column">
-              Bottom Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/bottom2.svg">
-        </div>
-        <div id="" class=" column">
-              Ascending Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/ascending7.svg">
-          </div>
-        <div id="" class=" column">
-              Top Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/top4.svg">
-        </div>
-      </div>
-    </span>
-      <div style="width:100%" class="row fragment" data-fragment-index="8">
+      <div style="width:100%" class="row">
         <div class=" column">
               Bottom Layer
           <img style="display: block;" 
@@ -1652,7 +2584,7 @@
   </div>
 </section>
 <section class="graph-section" id="redoutcomegraph1">
-  <h5><b>Theorem:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
   <div style="width: 100%;">
     <div>
       <b style="font-size:0.99em">Reduced outcome $\pi_{S}$</b>
@@ -1663,81 +2595,171 @@
               <li>
                 For each vertex $v$, $\delta(v, \pi(v))$ is minimized
               </li>
-              <li>
+              <li style="color:red">
                 Exactly one per solution $S$ of PC-X3C instance $I$ exists.
               </li>
             </ul>
           </li>
       </ul>
     </div>
-    <p  data-fragment-index="6" class="fragment">Solution $S = \{C_1, C_6\}$</p>
-    <span data-fragment-index="5" class="fade-out fragment hide">
+    <p  data-fragment-index="6" class="fragment">Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+  </div>
+</section>
+<section class="graph-section" id="reducedbot0">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="reducedbot0-anim" style="display: block; width:75%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="reducedbot1">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="reducedbot1-anim" style="display: block; width:75%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="reducedbot2">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="reducedbot2-anim" style="display: block; width:75%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="reducedbot3">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="reducedbot3-anim" style="display: block; width:75%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="reducedbot4">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="reducedbot4-anim" style="display: block; width:75%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="reducedbot5">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Bottom Layer
+        </div>
+        <div id="reducedbot5-anim" style="display: block; width:75%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="reducedascending0">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Ascending Layer
+        </div>
+        <div id="reducedascending0-anim" style="display: block; width:75%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="reducedascending1">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Ascending Layer
+        </div>
+        <div id="reducedascending1-anim" style="display: block; width:75%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="reducedtop0">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Top Layer
+        </div>
+        <div id="reducedtop0-anim" style="display: block; width:50%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="reducedtop1">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <div>
+      <b style="font-size:0.99em">Reduced outcome $\pi_{reduced}$</b>
+    </div>
+    <p>Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
+      <div style="width:100%">
+        <div>
+              Top Layer
+        </div>
+        <div id="reducedtop1-anim" style="display: block; width:50%"></div>
+      </div>
+  </div>
+</section>
+<section class="graph-section" id="redoutcomegraph1">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <p >Solution $S = \{C_1, C_6\} = \{\{1,2,3\}, \{4,5,6\}\}$</p>
       <div style="width:100%" class="row">
-        <div class=" column">
-              Bottom Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/bottom1.svg">
-        </div>
-        <div id="" class=" column">
-              Ascending Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/ascending4.svg">
-        </div>
-        <div id="" class=" column">
-              Top Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/top4.svg">
-        </div>
-      </div>
-    </span>
-    <span data-fragment-index="7" class="fade-out fragment hide">
-      <div style="width:100%" class="row fragment" data-fragment-index="5">
-        <div class=" column">
-              Bottom Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/bottom3.svg">
-        </div>
-        <div id="" class=" column">
-              Ascending Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/ascending4.svg">
-          </div>
-        <div id="" class=" column">
-              Top Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/top4.svg">
-        </div>
-      </div>
-    </span>
-    <span data-fragment-index="8" class="fade-out fragment hide">
-      <div style="width:100%" class="row fragment" data-fragment-index="7">
-        <div class=" column">
-              Bottom Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/bottom3.svg">
-        </div>
-        <div id="" class=" column">
-              Ascending Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/ascending10.svg">
-          </div>
-        <div id="" class=" column">
-              Top Layer
-          <img style="display: block;" 
-            width="auto" height="100%" 
-            data-src="images/graphs/top4.svg">
-        </div>
-      </div>
-    </span>
-      <div data-fragment-index="8" style="width:100%" class=" fragment row">
         <div class=" column">
               Bottom Layer
           <img style="display: block;" 
@@ -1759,11 +2781,65 @@
       </div>
   </div>
 </section>
+<section class="graph-section">
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+      <div style="width:100%" class="row">
+        <div class=" column">
+              <b>$\pi_{pp}$ Top Layer</b>
+          <img style="display: block;" 
+            width="100%" height="auto" 
+            data-src="images/graphs/top6-zoomed.svg">
+        </div>
+        <div id="" class=" column">
+              <b>$\pi_{S}$ Top Layer</b>
+          <img style="display: block;" 
+            width="100%" height="aut0" 
+            data-src="images/graphs/top5-zoomed.svg">
+        </div>
+      </div>
+  </div>
+</section>
 <section class="graph-section" id="conclusion">
-  <h5><b>Theorem:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
   <p style="width: 100%;">
     <span data-fragment-index="46" class="fragment">PC-X3C instance $I$ has <b>no</b> solution<span data-fragment-index="47" class="fragment">$\iff$</span><span data-fragment-index="48" class="fragment">$G$ has a <b>strictly popular</b> outcome</span><span data-fragment-index="49" class="fragment"> $\Box$</span></span>
   <p>
+</section>
+<section>
+  <h5><b>Theorem 4.1.9:</b> strict popularity with <span style="color:red"><b>room size 3</b></span> is <span style="color:red"><b>co-NP-hard</b></span></h5>
+  <div style="width: 100%;">
+    <table>
+      <tr>
+        <th>Equilibrium Concept</th>
+        <th>Room size</th>
+        <th>Multidimensional Stable Roommates Problem</th>
+        <th>Roommate Diversity Problem</th>
+        <th> 3D-Euclidean Stable Roommates</th>
+      </tr>
+      <tr>
+        <td>Popularity</td>
+        <td>$2$</td>
+        <td style="color:red">NP-hard</td>
+        <td style="color:green">P</td>
+        <td data-fragment-index="3" class="fragment">?</td>
+      </tr>
+      <tr>
+        <td>Strict Popularity</td>
+        <td>$\geq 3$</td>
+        <td style="color: red">NP-hard</td>
+        <td style="color: red">co-NP-hard</td>
+        <td data-fragment-index="2" class="fragment">?</td>
+      </tr>
+      <tr data-fragment-index="1" class="fragment">
+        <td>Strict Popularity</td>
+        <td>$3$</td>
+        <td style="color: red">NP-hard</td>
+        <td>?</td>
+        <td style="color: red">co-NP-hard</td>
+      </tr>
+    </table>
+  </div>
 </section>
             </section>
     
@@ -1796,7 +2872,7 @@
          <li>Popular outcome computable in polynomial time</li>
        </ul>
      </td>
-     <td><b>Section 3.1</b></td>
+     <td><b>Theorem 3.1.2.</b></td>
      <td style="color:white"></td>
    </tr>
    <tr>
@@ -1808,7 +2884,7 @@
          <li><b>co-NP-hard</b></li>
        </ul>
      </td>
-     <td><b>Section 3.2</b></td>
+     <td><b>Theorem 3.2.2.</b></td>
      <td>
       <ul>
         <li data-fragment-index="2" class="fragment" style="color:gray"><b>Completeness<b></li>
@@ -1827,7 +2903,7 @@
          <li style="color:red">Mixed Popular outcome <b>CANNOT</b> be computed in polynomial time, unless P=NP</li>
        </ul>
      </td>
-     <td><b>Section 3.3</b></td>
+     <td><b>Theorem 3.3.1.<br>Theorem 3.3.6.</b></td>
      <td>
       <ul>
         <li data-fragment-index="4" class="fragment" style="color:gray"><b>Strict Preferences<b></li>
@@ -1844,7 +2920,7 @@
          <li><b>co-NP-hard</b></li>
        </ul>
      </td>
-     <td><b>Section 3.4</b></td>
+     <td><b>Theorem 3.4.17.</b></td>
      <td>
       <ul>
         <li data-fragment-index="2" class="fragment" style="color:gray"><b>Completeness<b></li>
@@ -1867,12 +2943,38 @@
             <h3>Future Work</h3>
 <h4>Popularity on 3D-Euclidean Stable Roommates</h4>
 <section>
-  <ul>
-    <li class="fragment">Room size 2</li>
-    <li class="fragment">Room size $>$ 3</li>
-    <li class="fragment">Mixed Popularity</li>
-    <li class="fragment">Popularity</li>
-  </ul>
+  <table>
+    <tr>
+      <th>Equilibrium Concept</th>
+      <th>Room size</th>
+      <th> 3D-Euclidean Stable Roommates</th>
+    </tr>
+    <tr>
+      <td>Popularity</td>
+      <td>$2$</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>Strict Popularity</td>
+      <td>$3$</td>
+      <td style="color: red">co-NP-hard</td>
+    </tr>
+    <tr data-fragment-index="1" class="fragment">
+      <td>Strict Popularity</td>
+      <td>$> 3$</td>
+      <td>?</td>
+    </tr>
+    <tr data-fragment-index="2" class="fragment">
+      <td>Mixed Popularity</td>
+      <td>$\geq 3$</td>
+      <td>?</td>
+    </tr>
+    <tr data-fragment-index="3" class="fragment">
+      <td>Popularity</td>
+      <td>$\geq 3$</td>
+      <td>?</td>
+    </tr>
+  </table>
 </section>
             </section>
     
@@ -1936,6 +3038,14 @@
     <tr>
       <td>[12]</td>
       <td>Di Battista, G., Liotta, G., & Vargiu, F. (1998). Spirality and optimal orthogonal drawings. SIAM Journal on Computing, 27(6), 1764-1811.</td>
+    </tr>
+    <tr>
+      <td>[13]</td>
+      <td>Irving, R.W. (1985). An Efficient Algorithm for the "Stable Roommates" Problem. J. Algorithms, 6, 577-595.</td>
+    </tr>
+    <tr>
+      <td>[14]</td>
+      <td>Ng, C., & Hirschberg, D. S. (1991). Three-Dimensional Stabl Matching Problems. SIAM Journal on Discrete Mathematics, 4(2), 245–252.</td>
     </tr>
   </table>
 </section>
@@ -2012,6 +3122,8 @@
 <script src="lib/graphs/graphs/euclid_setnodesgadget.js"></script>
 <script src="lib/graphs/graphs/euclid_bendpoint.js"></script>
 <script src="lib/graphs/graphs/euclid_chain.js"></script>
+<!-- 3D euclid predefined outcomes anims -->
+<script src="lib/svg-anims/3deuclidoutcomes.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", function(){
   Reveal.configure({
@@ -2160,7 +3272,7 @@
   const printPlugins = [
       RevealNotes,
       RevealHighlight,
-      RevealMath.MathJax3,
+      RevealMath,
       RevealAnimate,
       RevealChalkboard, 
 			RevealEmbedTweet,
